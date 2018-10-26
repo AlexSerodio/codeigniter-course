@@ -12,51 +12,18 @@
         
         public function login() {
             
-            echo $this->input->post('username');
+            $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]');
+            $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[3]');
+            $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|min_length[3]|matches[password]');
 
+            if($this->form_validation->run() === FALSE) {
+                $data = array(
+                    'errors' => validation_errors()
+                );
+                $this->session->set_flashdata($data);
+
+                redirect('home');
+            }
         }
-
-        /*
-        public function show($user_id) {
-
-            // use the loaded model
-            $result = $this->user_model->get_users($user_id, 'alex');
-
-            // this array will be send to view and each index
-            // will become a variable in view. Example: 
-            // $data['welcome'] can be used as $welcome in view
-            $data['results'] = $result;
-            $this->load->view('user_view', $data);
-
-        }
-
-        public function insert() {
-            $username = "peter";
-            $password = "secret";
-
-            $this->user_model->create_users([
-                'user' => $username,
-                'password' => $password
-            ]);
-        } 
-
-        public function update() {
-            $id = 3;
-
-            $username = "willian";
-            $password = "not so seccret";
-
-            $this->user_model->update_users([
-                'user' => $username,
-                'password' => $password
-            ], $id);
-        } 
-
-        public function delete() {
-            $id = 3;
-            $this->user_model->delete_users($id);
-        } 
-        */
     }
-
 ?>
