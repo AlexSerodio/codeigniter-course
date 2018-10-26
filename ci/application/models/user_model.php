@@ -2,23 +2,14 @@
     class User_model extends CI_Model {
 
         public function get_users($user_id, $username) {
-            // $query = $this->db->query('SELECT * FROM users');
-            
-            // $this->db->where('id', $user_id);
-
-            $this->db->where([
+           $this->db->where([
                 'id' => $user_id,
                 'user' => $username
                 
             ]);
 
             $query = $this->db->get('users');
-            
             return $query->result();
-
-            // return $query->num_rows();
-            // return $query->num_fields();
-
         }
 
         public function create_users($data) {
