@@ -1,23 +1,44 @@
 <?php 
     class User_model extends CI_Model {
 
-        public function get_users() {
-            $query = $this->db->get('users');
+        public function get_users($user_id, $username) {
+            // $query = $this->db->query('SELECT * FROM users');
+            
+            // $this->db->where('id', $user_id);
 
+            $this->db->where([
+                'id' => $user_id,
+                'user' => $username
+                
+            ]);
+
+            $query = $this->db->get('users');
+            
             return $query->result();
+
+            // return $query->num_rows();
+            // return $query->num_fields();
+
         }
 
-        /* it doesn't need to use it like this because
-         * the database was configured in config/database.php
-         * and autoloaded in config/autolad.php */
-        // public function manual_connection() {
-        //     $config['hostname'] = 'localhost';
-        //     $config['username'] = 'root';
-        //     $config['password'] = '';
-        //     $config['database'] = 'errnd_db';
+        public function create_users($data) {
 
-        //     $connection = $this->load->database($config);
-        // }
+            $this->db->insert('users', $data);
+        
+        } 
 
+        public function update_users($data, $id) {
+        
+            $this->db->where('id', $id);
+            $this->db->update('users', $data);
+        
+        }
+
+        public function delete_users($id) {
+        
+            $this->db->where('id', $id);
+            $this->db->delete('users');
+        
+        }
     }
 ?>

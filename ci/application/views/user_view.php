@@ -7,6 +7,8 @@
 <body>
     <h1>
         <?php
+            // echo $results;
+
             // variable $results recieved from the users controller
             foreach($results as $object) {
                 echo $object->user . '<br>';
