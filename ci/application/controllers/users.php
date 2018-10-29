@@ -10,6 +10,33 @@
             $this->load->model('user_model');
         }
         
+        public function register() {
+
+            $this->form_validation->set_rules('first_name', 'First Name', 'trim|required|min_length[3]', 
+                array('required' => 'Informe seu nome.',
+                        'min_length' => 'O nome deve possuir no mínimo 3 caracteres.'));
+            $this->form_validation->set_rules('last_name', 'Last Name', 'trim|required|min_length[3]', 
+                array('required' => 'Informe seu sobrenome.',
+                        'min_length' => 'O sobrenome deve possuir no mínimo 3 caracteres.'));
+            $this->form_validation->set_rules('email', 'Email', 'trim|required|min_length[3]', 
+                array('required' => 'Informe seu email.',
+                        'min_length' => 'O email deve possuir no mínimo 3 caracteres.'));
+            $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]', 
+                array('required' => 'Informe seu nome de usuário.',
+                        'min_length' => 'O nome deve possuir no mínimo 3 caracteres.'));
+            $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[3]',
+                array('required' => 'Informe sua senha.',
+                    'min_length' => 'A senha deve possuir no mínimo 3 caracteres.'));
+
+            if($this->form_validation->run() === FALSE) {
+                $data['main_view'] = 'users/register_view';
+                $this->load->view('layouts/main', $data);
+            } else {
+                $data['main_view'] = 'users/register_view';
+                $this->load->view('layouts/main', $data);
+            }
+        }
+
         public function login() {
             
             $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]', 

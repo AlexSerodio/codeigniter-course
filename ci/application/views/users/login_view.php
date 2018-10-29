@@ -1,7 +1,7 @@
 <?php 
     if(!$this->session->userdata('logged')) { 
 ?>
-        <h2>Login form</h2>
+        <h2>Entrar</h2>
 
         <?php
             if($this->session->flashdata('errors')) {
