@@ -9,7 +9,7 @@
     <ul class='list-group'>
         <h4>Ações do Projeto</h4>
         <li class='list-group-item'><a href="">Criar Tarefa</a></li>
-        <li class='list-group-item'><a href="<?php echo base_url('projects/edit'); ?>">Editar Projeto</a></li>
+        <li class='list-group-item'><a href="<?php echo base_url('projects/edit/') . $project_data->id; ?>">Editar Projeto</a></li>
         <li class='list-group-item'><a href="">Excluir Projeto</a></li>
     </ul>
 </div>

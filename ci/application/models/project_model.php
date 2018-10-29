@@ -6,8 +6,8 @@
             return $query->result();
         }
 
-        public function get_project($id) {
-            $this->db->where('id', $id);
+        public function get_project($project_id) {
+            $this->db->where('id', $project_id);
             $query = $this->db->get('projects'); 
 
             return $query->row();
@@ -19,8 +19,11 @@
             return $query;
         }
 
-        public function update_project($data) {
-            
+        public function update_project($project_id, $data) {
+            $this->db->where('id', $project_id);
+            $this->db->update('projects', $data);
+
+            return true;
         }
     }
 ?>

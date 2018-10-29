@@ -62,6 +62,9 @@
                     'min_length' => 'A descrição deve possuir no mínimo 3 caracteres.'));
         
             if($this->form_validation->run() === FALSE) {
+            
+                $data['project_data'] = $this->project_model->get_project($project_id);
+            
                 $data['main_view'] = 'projects/edit_project_view';
                 $this->load->view('layouts/main', $data);
             } else {
@@ -71,7 +74,7 @@
                     'project_body' => $this->input->post('project_body')
                 );
 
-                if($this->project_model->update_project($data)) {
+                if($this->project_model->update_project($project_id, $data)) {
                     $this->session->set_flashdata('project_updated', 'O projeto foi atualizado com sucesso.');
                     redirect('projects/index');
                 } else {
