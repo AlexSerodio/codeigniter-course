@@ -64,6 +64,23 @@
 
 <?php 
     } else {
-        echo "Logout";
+
+        echo '<h2>Logout</h2>';
+
+        echo form_open('users/logout');
+
+            if($this->session->userdata('username')) {
+                echo 'Você está conectado como ' . $this->session->userdata('username') . '.</p>';
+            }
+
+            $data = array(
+                'class' => 'btn btn-primary',
+                'name' => 'submit',
+                'value' => 'Sair'
+            );
+
+            echo form_submit($data);
+            
+        echo form_close();
     }
 ?>

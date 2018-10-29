@@ -43,16 +43,26 @@
                         'logged' => true
                     );
 
-                    $this->session->set_userdata('login', $user_data);
+                    $this->session->set_userdata($user_data);
                     $this->session->set_flashdata('login_success', 'Você está conectado.');
 
-                    redirect('home');
+                    $data['main_view'] = "admin_home_view";
+                    $this->load->view("layouts/main", $data);
+
+                    // redirect('home');
+
+
                 } else {
                     $this->session->set_flashdata('login_fail', 'Você não está conectado.');
 
                     redirect('home');
                 }
             }
+        }
+
+        public function logout() {
+            $this->session->sess_destroy();
+            redirect('home');
         }
     }
 ?>
