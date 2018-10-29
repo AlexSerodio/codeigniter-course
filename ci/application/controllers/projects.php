@@ -40,17 +40,44 @@
             } else {
                 $data = array(
                     'project_user_id' => $this->session->userdata('user_id'),
-                    'project_name' => $this->inpt->post('project_name'),
-                    'project_body' => $this->inpt->post('project_body')
+                    'project_name' => $this->input->post('project_name'),
+                    'project_body' => $this->input->post('project_body')
                 );
 
                 if($this->project_model->create_project($data)) {
                     $this->session->set_flashdata('project_created', 'O projeto foi criado com sucesso.');
                     redirect('projects/index');
                 } else {
-                    
+
                 }
-            } 
+            }
+        }
+
+        public function edit($project_id) {
+            $this->form_validation->set_rules('project_name', 'Project Name', 'trim|required|min_length[3]', 
+                array('required' => 'Informe um nome para o projeto.',
+                        'min_length' => 'O nome deve possuir no mínimo 3 caracteres.'));
+            $this->form_validation->set_rules('project_body', 'Project Body', 'trim|required|min_length[3]',
+                array('required' => 'Informe uma descrição para o projeto.',
+                    'min_length' => 'A descrição deve possuir no mínimo 3 caracteres.'));
+        
+            if($this->form_validation->run() === FALSE) {
+                $data['main_view'] = 'projects/edit_project_view';
+                $this->load->view('layouts/main', $data);
+            } else {
+                $data = array(
+                    'project_user_id' => $this->session->userdata('user_id'),
+                    'project_name' => $this->input->post('project_name'),
+                    'project_body' => $this->input->post('project_body')
+                );
+
+                if($this->project_model->update_project($data)) {
+                    $this->session->set_flashdata('project_updated', 'O projeto foi atualizado com sucesso.');
+                    redirect('projects/index');
+                } else {
+
+                }
+            }
         }
 
     }

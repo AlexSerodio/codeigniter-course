@@ -12,5 +12,15 @@
 
             return $query->row();
         }
+
+        public function create_project($data) {
+            $query = $this->db->insert('projects', $data);
+
+            return $query;
+        }
+
+        public function update_project($data) {
+            
+        }
     }
 ?>

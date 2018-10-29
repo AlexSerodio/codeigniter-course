@@ -1,4 +1,4 @@
-<h2>Cadastrar Produto</h2>
+<h2>Editar Produto</h2>
 
 <?php
     if($this->session->flashdata('errors')) {
@@ -10,7 +10,7 @@
     echo validation_errors("<p class='bg-danger'>");
 
     $attributes = array('id' => 'create_form', 'class' => 'form_horizontal');
-    echo form_open('projects/create', $attributes); 
+    echo form_open('projects/edit', $attributes); 
 ?>
 
         <div class="form-group">
@@ -41,7 +41,7 @@
                 $data = array(
                     'class' => 'btn btn-primary',
                     'name' => 'submit',
-                    'value' => 'Criar'
+                    'value' => 'Editar'
                 );
                 echo form_submit($data);
             ?>
