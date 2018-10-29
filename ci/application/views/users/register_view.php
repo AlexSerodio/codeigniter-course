@@ -7,6 +7,8 @@
 ?>
 
 <?php 
+    echo validation_errors("<p class='bg-danger'>");
+
     $attributes = array('id' => 'register_form', 'class' => 'form_horizontal');
     echo form_open('users/register', $attributes); 
 ?>

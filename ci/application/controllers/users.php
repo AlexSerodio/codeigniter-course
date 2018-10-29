@@ -32,8 +32,13 @@
                 $data['main_view'] = 'users/register_view';
                 $this->load->view('layouts/main', $data);
             } else {
-                $data['main_view'] = 'users/register_view';
-                $this->load->view('layouts/main', $data);
+                if($this->user_model->create_user()) {
+                    $this->session->set_flashdata('user_registered', 'Usuário cadastrado com sucesso.');
+                    redirect('home');
+                } else {
+
+                }
+                
             }
         }
 
