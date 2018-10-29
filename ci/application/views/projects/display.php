@@ -1,6 +1,8 @@
 <div class="col-xs-9">
-    <h1>Nome do Projeto: <?php echo $project_data->project_name; ?></h1>
+    <h1>Nome: <?php echo $project_data->project_name; ?></h1>
     <p>Data de criação: <?php echo $project_data->date_created; ?></p>
+    <h3>Descrição</h3>
+    <p><?php echo $project_data->project_body; ?></p>
 </div>
 
 <div class="col-xs-3 pull-right">
