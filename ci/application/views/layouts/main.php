@@ -30,7 +30,10 @@
                     <li><a href="<?php echo base_url('users/register'); ?>">Cadastro <span class="sr-only">(current)</span></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Link</a></li>
+                    <?php if($this->session->userdata('logged')): ?>
+                        <li><a href="<?php echo base_url('users/logout'); ?>">Sair</a></li>
+                    <?php endif; ?>
+                    
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

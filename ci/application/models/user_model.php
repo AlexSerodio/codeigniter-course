@@ -5,7 +5,6 @@
            $this->db->where([
                 'id' => $user_id,
                 'user' => $username
-                
             ]);
 
             $query = $this->db->get('users');
