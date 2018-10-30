@@ -46,10 +46,10 @@
 
                 if($this->project_model->create_project($data)) {
                     $this->session->set_flashdata('project_created', 'O projeto foi criado com sucesso.');
-                    redirect('projects/index');
                 } else {
-
+                    $this->session->set_flashdata('project_created', 'A criação do projeto não foi finalizada. Tente novamente.');
                 }
+                redirect('projects/index');
             }
         }
 
