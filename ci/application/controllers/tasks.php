@@ -87,6 +87,26 @@
             redirect('projects/display/' . $project_id);
         }
 
+        public function mark_complete($task_id) {
+            if($this->task_model->mark_complete($task_id, true)) {
+                
+                $project_id = $this->task_model->get_task_project_id($task_id);
+
+                $this->session->set_flashdata('mark_done', 'A tarefa foi concluida.');
+                redirect('projects/display/' . $project_id);
+            }
+        }
+
+        public function mark_pending($task_id) {
+            if($this->task_model->mark_complete($task_id, false)) {
+                
+                $project_id = $this->task_model->get_task_project_id($task_id);
+
+                $this->session->set_flashdata('mark_pending', 'A tarefa foi reativada.');
+                redirect('projects/display/' . $project_id);
+            }
+        }
+
     }
 
 ?>

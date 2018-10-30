@@ -13,14 +13,6 @@
         if($this->session->flashdata('project_deleted')) {
             echo $this->session->flashdata('project_deleted');
         }
-
-        if($this->session->flashdata('task_updated')) {
-            echo $this->session->flashdata('task_updated');
-        }
-
-        if($this->session->flashdata('task_deleted')) {
-            echo $this->session->flashdata('task_deleted');
-        }
     ?>
 </p>
 

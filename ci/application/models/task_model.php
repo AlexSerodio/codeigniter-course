@@ -49,6 +49,19 @@
 
             return true;
         }
+
+        public function mark_complete($task_id, $complete) {
+            if($complete) {
+                $this->db->set('status', 1);
+            } else {
+                $this->db->set('status', 0);
+            }
+            
+            $this->db->where('id', $task_id);
+            $this->db->update('tasks');
+
+            return true;
+        }
     }
 
 ?>

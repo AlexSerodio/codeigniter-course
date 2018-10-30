@@ -16,12 +16,17 @@
                 </div>
                 <div class="task-actions">
                     <a href="<?php echo base_url('tasks/edit/') . $task->id; ?>">Editar</a>
-                    <a href="<?php echo base_url('tasks/delete/') . $task->id . '/' . $task->project_id; ?>">Remover</a>
+                    <a href="<?php echo base_url('tasks/delete/') . $task->id . '/' . $task->project_id; ?>">Excluir</a>
                 </div>
             </td>
             <td><?php echo $task->task_body; ?></td>
             <td><?php echo $task->date_created; ?></td>
-            <td><a href="<?php echo base_url(''); ?>">View</a></td>
+            <td>
+                <a href="<?php echo base_url('tasks/mark_complete/') . $task->id . '/' . $task->project_id; ?>">Concluir</a>
+            </td>
+            <td>
+                <a href="<?php echo base_url('tasks/mark_pending/') . $task->id . '/' . $task->project_id; ?>">Reativar</a>
+            </td>
         </tr>
     </tbody>
 </table>

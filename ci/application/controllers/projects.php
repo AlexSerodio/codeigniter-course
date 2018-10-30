@@ -20,8 +20,8 @@
         }
         
         public function display($project_id) {
-            $data['completed_tasks'] = $this->project_model->get_project_tasks($project_id, true);
-
+            $data['pending_tasks'] = $this->project_model->get_project_tasks($project_id, true);
+            $data['completed_tasks'] = $this->project_model->get_project_tasks($project_id, false);
 
             $data['project_data'] = $this->project_model->get_project($project_id);
 
