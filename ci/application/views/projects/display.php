@@ -3,6 +3,23 @@
     <p>Data de criação: <?php echo $project_data->date_created; ?></p>
     <h3>Descrição</h3>
     <p><?php echo $project_data->project_body; ?></p>
+
+    <h3>Tarefas</h3>
+
+    <?php if($completed_tasks): ?>
+        <ul>
+            <?php foreach($completed_tasks as $task): ?>
+                <li>
+                    <a href="<?php echo base_url('tasks/display/') . $task->task_id; ?>">
+                        <?php echo $task->task_name; ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        <ul>
+    <?php else: ?>
+        <p>Esse projeto não possui nenhuma trefa pendente.</p>
+    <?php endif; ?>
+
 </div>
 
 <div class="col-xs-3 pull-right">

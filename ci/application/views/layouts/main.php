@@ -28,6 +28,7 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="<?php echo base_url(); ?>">Início<span class="sr-only">(current)</span></a></li>
                     <li><a href="<?php echo base_url('users/register'); ?>">Cadastro <span class="sr-only">(current)</span></a></li>
+                    <li><a href="<?php echo base_url('projects'); ?>">Projetos <span class="sr-only">(current)</span></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php if($this->session->userdata('logged')): ?>

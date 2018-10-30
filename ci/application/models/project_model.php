@@ -39,5 +39,32 @@
 
             return true;
         }
+
+        public function get_project_tasks($project_id, $active = true) {
+            $this->db->select('
+                tasks.task_name,
+                tasks.task_body,
+                tasks.id as task_id,
+                projects.project_name,
+                projects.project_body
+            ');
+
+            $this->db->from('tasks');
+            $this->db->join('projects', 'projects.id = tasks.project_id');
+            $this->db->where('tasks.project_id', $project_id);
+        
+            if($active === true) {
+                $this->db->where('tasks.status', 0);
+            } else {
+                $this->db->where('tasks.status', 1);
+            }
+
+            $query = $this->db->get();
+
+            if($query->num_rows() <= 0) {
+                return false;
+            }
+            return $query->result();
+        }
     }
 ?>
