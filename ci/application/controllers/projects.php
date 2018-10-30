@@ -62,7 +62,6 @@
                     'min_length' => 'A descrição deve possuir no mínimo 3 caracteres.'));
         
             if($this->form_validation->run() === FALSE) {
-            
                 $data['project_data'] = $this->project_model->get_project($project_id);
             
                 $data['main_view'] = 'projects/edit_project_view';

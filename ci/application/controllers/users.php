@@ -78,16 +78,16 @@
                     $this->session->set_userdata($user_data);
                     $this->session->set_flashdata('login_success', 'Você está conectado.');
 
-                    $data['main_view'] = "admin_home_view";
-                    $this->load->view("layouts/main", $data);
+                    //$data['main_view'] = "admin_home_view";
+                    //$this->load->view("layouts/main", $data);
 
-                    // redirect('home');
+                    redirect('home');
 
 
                 } else {
                     $this->session->set_flashdata('login_fail', 'Você não está conectado.');
 
-                    redirect('home');
+                    redirect('');
                 }
             }
         }

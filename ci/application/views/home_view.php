@@ -18,27 +18,31 @@
     ?>
 </p>
 
-<h1>Test view home</h1>
-
-<table class='table table-hover'>
-    <thead>
-        <tr>
-            <th>
-                Nome do Projeto
-            </th>
-            <th>
-                Descrição do Projeto
-            </th>
-        </tr>
-    <thead>
-    <tbody>
-        <?php foreach($projects as $project): ?>
+<?php if(!isset($projects)): ?>
+    <div class="jumbotron">
+        <h2 class='text-center'>Bem Vindo!</h2>
+    </div>
+<?php else: ?>
+    <h1>Projetos</h1>
+    <table class='table table-bordered'>
+        <thead>
             <tr>
-                <?php echo "<td><a href='". base_url('projects/display/') . $project->id ."'>" . $project->project_name . "</td>"; ?>
-                <?php echo "<td>" . $project->project_body . "</td>"; ?>
-            
-                <td><a class='btn btn-danger' href="<?php echo base_url('projects/delete/') . $project->id; ?>"><span class='glyphicon glyphicon-remove'></span></a></td>
+                <th>
+                    Nome do Projeto
+                </th>
+                <th>
+                    Descrição do Projeto
+                </th>
             </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
+        <thead>
+        <tbody>
+            <?php foreach($projects as $project): ?>
+                <tr>
+                    <td><?php echo $project->project_name; ?></td>
+                    <td><?php echo $project->project_body; ?></td>
+                    <td><a href="<?php echo base_url('projects'); ?>">View</a></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php endif; ?>
