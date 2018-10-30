@@ -1,4 +1,4 @@
-<h1>Projects</h1>
+<h1>Projetos</h1>
 
 <p class='bg-success'> 
     <?php 
@@ -16,6 +16,10 @@
 
         if($this->session->flashdata('task_updated')) {
             echo $this->session->flashdata('task_updated');
+        }
+
+        if($this->session->flashdata('task_deleted')) {
+            echo $this->session->flashdata('task_deleted');
         }
     ?>
 </p>

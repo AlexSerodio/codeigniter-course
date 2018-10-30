@@ -40,6 +40,13 @@
             return true;
         }
 
+        public function delete_project_tasks($project_id) {
+            $this->db->where('project_id', $project_id);
+            $query = $this->db->delete('tasks');
+
+            return $query;
+        }
+
         public function get_project_tasks($project_id, $active = true) {
             $this->db->select('
                 tasks.task_name,

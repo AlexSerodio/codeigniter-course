@@ -40,7 +40,7 @@
                 } else {
                     $this->session->set_flashdata('task_created', 'A criação da tarefa não foi finalizada. Tente novamente.');
                 }
-                redirect('projects/index');
+                redirect('projects/display/' . $project_id);
             }
         }
 
@@ -76,15 +76,15 @@
                 } else {
                     $this->session->set_flashdata('task_updated', 'A alteração da tarefa não foi finalizada. Tente novamente.');
                 }
-                redirect('projects/');
+                redirect('projects/display/' . $project_id);
             }
         }
 
-        public function delete($task_id) {
-            $this->project_model->delete_task($task_id);
+        public function delete($task_id, $project_id) {
+            $this->task_model->delete_task($task_id);
 
             $this->session->set_flashdata('task_deleted', 'A tarefa foi deletada com sucesso.');
-            redirect('projects/');
+            redirect('projects/display/' . $project_id);
         }
 
     }

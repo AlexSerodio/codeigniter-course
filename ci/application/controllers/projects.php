@@ -84,6 +84,9 @@
         }
 
         public function delete($project_id) {
+            
+            $this->project_model->delete_project_tasks($project_id);
+            
             $this->project_model->delete_project($project_id);
 
             $this->session->set_flashdata('project_deleted', 'O projeto foi deletado com sucesso.');

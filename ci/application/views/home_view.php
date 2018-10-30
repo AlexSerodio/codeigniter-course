@@ -40,7 +40,7 @@
                 <tr>
                     <td><?php echo $project->project_name; ?></td>
                     <td><?php echo $project->project_body; ?></td>
-                    <td><a href="<?php echo base_url('projects'); ?>">View</a></td>
+                    <td><a href="<?php echo base_url('projects/display/') . $project->id; ?>">View</a></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
