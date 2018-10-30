@@ -77,10 +77,15 @@
                 if($this->project_model->update_project($project_id, $data)) {
                     $this->session->set_flashdata('project_updated', 'O projeto foi atualizado com sucesso.');
                     redirect('projects/index');
-                } else {
-
                 }
             }
+        }
+
+        public function delete($project_id) {
+            $this->project_model->delete_project($project_id);
+
+            $this->session->set_flashdata('project_deleted', 'O projeto foi deletado com sucesso.');
+            redirect('projects/index');
         }
 
     }
