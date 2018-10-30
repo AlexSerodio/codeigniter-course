@@ -46,3 +46,28 @@
         </tbody>
     </table>
 <?php endif; ?>
+
+<?php if(isset($tasks)): ?>
+    <h1>Tarefas</h1>
+    <table class='table table-bordered'>
+        <thead>
+            <tr>
+                <th>
+                    Nome da Tarefa
+                </th>
+                <th>
+                    Descrição da Tarefa
+                </th>
+            </tr>
+        <thead>
+        <tbody>
+            <?php foreach($tasks as $task): ?>
+                <tr>
+                    <td><?php echo $task->task_name; ?></td>
+                    <td><?php echo $task->task_body; ?></td>
+                    <td><a href="<?php echo base_url('tasks/display/') . $project->id; ?>">View</a></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php endif; ?>

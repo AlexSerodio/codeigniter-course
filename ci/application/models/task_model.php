@@ -36,6 +36,14 @@
             return $query->row();
         }
 
+        public function get_all_tasks($user_id) {
+            $this->db->where('project_user_id', $user_id);
+            $this->db->join('tasks', 'projects.id = tasks.project_id');
+            $query = $this->db->get('projects');
+
+            return $query->result();
+        }
+
         public function update_task($task_id, $data) {
             $this->db->where('id', $task_id);
             $this->db->update('tasks', $data);
