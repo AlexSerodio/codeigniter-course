@@ -2,7 +2,7 @@
     <h1><?php echo $task->task_name; ?></h1>
     <p>Projeto: <?php echo $project_name; ?></p>
     <p>Criado em: <?php echo $task->date_created; ?></p>
-    <p>Entrega: <?php echo $task->due_created; ?></p>
+    <p>Entrega: <?php echo $task->due_date; ?></p>
 
     <h4>Descrição</h4>
     <p class='task-description'>
@@ -10,7 +10,7 @@
     </p>
 
 </div>
-<table class='table table-bordered'>
+<!-- <table class='table table-bordered'>
     <thead>
         <tr>
             <th>Nome do Projeto</th>
@@ -22,24 +22,24 @@
         <tr>
             <td>
                 <div class="tas-name">
-                    <?php echo $task->task_name; ?>
+                    <?php //echo $task->task_name; ?>
                 </div>
                 <div class="task-actions">
-                    <a href="<?php echo base_url('tasks/edit/') . $task->id; ?>">Editar</a>
-                    <a href="<?php echo base_url('tasks/delete/') . $task->id . '/' . $task->project_id; ?>">Excluir</a>
+                    <a href="<?php //echo base_url('tasks/edit/') . $task->id; ?>">Editar</a>
+                    <a href="<?php //echo base_url('tasks/delete/') . $task->id . '/' . $task->project_id; ?>">Excluir</a>
                 </div>
             </td>
-            <td><?php echo $task->task_body; ?></td>
-            <td><?php echo $task->date_created; ?></td>
+            <td><?php //echo $task->task_body; ?></td>
+            <td><?php //echo $task->date_created; ?></td>
             <td>
-                <a href="<?php echo base_url('tasks/mark_complete/') . $task->id . '/' . $task->project_id; ?>">Concluir</a>
+                <a href="<?php //echo base_url('tasks/mark_complete/') . $task->id . '/' . $task->project_id; ?>">Concluir</a>
             </td>
             <td>
-                <a href="<?php echo base_url('tasks/mark_pending/') . $task->id . '/' . $task->project_id; ?>">Reativar</a>
+                <a href="<?php //echo base_url('tasks/mark_pending/') . $task->id . '/' . $task->project_id; ?>">Reativar</a>
             </td>
         </tr>
     </tbody>
-</table>
+</table> -->
 
 <div class="col-xs-3 pull-right">
     <ul class='list-group'>

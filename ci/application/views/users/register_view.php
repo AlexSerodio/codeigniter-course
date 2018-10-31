@@ -19,7 +19,8 @@
                 $data = array(
                     'class' => 'form-control',
                     'name' => 'first_name',
-                    'placeholder' => 'Nome'
+                    'placeholder' => 'Nome',
+                    'value' => set_value('first_name')
                 );
                 echo form_input($data);
             ?>
@@ -31,7 +32,8 @@
                 $data = array(
                     'class' => 'form-control',
                     'name' => 'last_name',
-                    'placeholder' => 'Sobrenme'
+                    'placeholder' => 'Sobrenme',
+                    'value' => set_value('last_name')
                 );
                 echo form_input($data);
             ?>
@@ -43,7 +45,8 @@
                 $data = array(
                     'class' => 'form-control',
                     'name' => 'email',
-                    'placeholder' => 'Email'
+                    'placeholder' => 'Email',
+                    'value' => set_value('email')
                 );
                 echo form_input($data);
             ?>
@@ -55,7 +58,8 @@
                 $data = array(
                     'class' => 'form-control',
                     'name' => 'username',
-                    'placeholder' => 'Nome de usuário'
+                    'placeholder' => 'Nome de usuário',
+                    'value' => set_value('username')
                 );
                 echo form_input($data);
             ?>

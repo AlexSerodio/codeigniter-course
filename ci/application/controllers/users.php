@@ -29,16 +29,14 @@
                     'min_length' => 'A senha deve possuir no mínimo 3 caracteres.'));
 
             if($this->form_validation->run() === FALSE) {
+                $this->session->set_flashdata('user_registered', 'Usuário não cadastrado com sucesso.');
                 $data['main_view'] = 'users/register_view';
                 $this->load->view('layouts/main', $data);
             } else {
                 if($this->user_model->create_user()) {
                     $this->session->set_flashdata('user_registered', 'Usuário cadastrado com sucesso.');
                     redirect('home');
-                } else {
-
-                }
-                
+                }                
             }
         }
 
@@ -78,12 +76,7 @@
                     $this->session->set_userdata($user_data);
                     $this->session->set_flashdata('login_success', 'Você está conectado.');
 
-                    //$data['main_view'] = "admin_home_view";
-                    //$this->load->view("layouts/main", $data);
-
                     redirect('home');
-
-
                 } else {
                     $this->session->set_flashdata('login_fail', 'Você não está conectado.');
 
